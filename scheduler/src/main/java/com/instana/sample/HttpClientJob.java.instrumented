@@ -43,7 +43,7 @@ public class HttpClientJob implements Runnable {
       try{
         error("http://nonexistingfakefqdn");
       } catch (Exception e) {
-        // do nothing to make things 
+        // do nothing to simplify things
       }
     }
   }
