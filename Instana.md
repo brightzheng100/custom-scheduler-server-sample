@@ -30,9 +30,9 @@ Therefore, the call is not instrumented because no existing trace context is fou
 
 ## How to start tracing from `scheduler`?
 
-Two approaches: by SDK programmatically or configuration.
+Two approaches: by 1) SDK programmatically, or 2) configuration.
 
-### By SDK Programmatically
+### 1. By SDK Programmatically
 
 You may refer to [HttpClientJob.java.instrumented](./scheduler/src/main/java/com/instana/sample/HttpClientJob.java.instrumented).
 
@@ -105,7 +105,7 @@ Erroneous trace:
 ![erroneous trace](./images/trace-errorous.png)
 
 
-### By Configuration-based SDK
+### 2. By Configuration-based SDK
 
 But wait, you may ask: **can I achieve this without code changes?**
 
