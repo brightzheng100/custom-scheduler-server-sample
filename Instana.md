@@ -34,7 +34,7 @@ Two approaches: by SDK programmatically or configuration.
 
 ### By SDK Programmatically
 
-You may refer to [HttpClientJob.java.instrumented](./scheduler/src/main/java/com/instana/sample/HttpClientJob.java.instrumented src/main/java/com/instana/sample/HttpClientJob.java.instrumented).
+You may refer to [HttpClientJob.java.instrumented](./scheduler/src/main/java/com/instana/sample/HttpClientJob.java.instrumented).
 
 Some changes have been made. For example:
 
@@ -64,7 +64,6 @@ Some changes have been made. For example:
       logger.error("Could not call " + request.getURI() + ". Error: " + e.getMessage());
     }
   }
-
   ...
 ```
 
@@ -110,7 +109,7 @@ Erroneous trace:
 
 But wait, you may ask: **can I achieve this without code changes?**
 
-Fortunately, the answer is **yes**, by applying the so-called "configuration-based SDK".
+Fortunately, the answer is **yes** in Instana, by applying the so-called ["configuration-based SDK"](https://www.ibm.com/docs/en/instana-observability/current?topic=references-configuration-based-java-trace-sdk).
 
 Let's restart our apps but this time, we just run "original" code, without any changes:
 
