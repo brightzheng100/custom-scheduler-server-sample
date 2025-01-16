@@ -12,7 +12,7 @@ com.instana.plugin.generic.hardware:
 EOF
 ```
 
-## Why `client` component is not traced?
+## Why `scheduler` component is not traced?
 
 Both processes will be automatically discovered and monitored:
 ![infra](./images/infra.png)
@@ -23,14 +23,16 @@ However, the tracing starts from `server` component, instead of `scheduler`, the
 Why? As per the official doc [here](https://www.ibm.com/docs/en/instana-observability/current?topic=references-tutorial-instrumenting-custom-scheduler-instana-tracing-sdk):
 
 ```
-The reason is that Instana instruments outgoing calls only if they happen in an existing trace context. In the example, the outgoing call is triggered by the custom scheduler which is not instrumented. Therefore, the call is not instrumented because no existing trace context is found.
+The reason is that Instana instruments outgoing calls only if they happen in an existing trace context.
+In the example, the outgoing call is triggered by the custom scheduler which is not instrumented.
+Therefore, the call is not instrumented because no existing trace context is found.
 ```
 
 ## How to start tracing from `scheduler`?
 
-Two approaches.
+Two approaches: by SDK programmatically or configuration.
 
-### By Programmatic SDK
+### By SDK Programmatically
 
 You may refer to [HttpClientJob.java.instrumented](./scheduler/src/main/java/com/instana/sample/HttpClientJob.java.instrumented src/main/java/com/instana/sample/HttpClientJob.java.instrumented).
 
@@ -93,15 +95,15 @@ EOF
 After that, you will see the end-to-end tracing, starting from the scheduler:
 ![trace complete](./images/trace-complete.png)
 
-As we randomly call different endpoints where there is one errorous call intentionally, we can see this different tracing results.
+As we randomly call different endpoints where there is one erroneous call intentionally, we can see this different tracing results.
 
 Normal trace:
 
 ![normal trace](./images/trace-normal.png)
 
-Errorous trace:
+Erroneous trace:
 
-![errorous trace](./images/trace-errorous.png)
+![erroneous trace](./images/trace-errorous.png)
 
 
 ### By Configuration-based SDK
